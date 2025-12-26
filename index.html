@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e8d5ff 0%, #ffd5e8 50%, #ffe5d5 100%);
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #5a4a6a;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtext {
+            font-size: 1rem;
+            color: #8a7a9a;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e8d5ff;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            color: #5a4a6a;
+            background: #fff;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #c9a8e8;
+            box-shadow: 0 0 0 3px rgba(201, 168, 232, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #c9a8e8 0%, #ffb3d9 100%);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 168, 232, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 168, 232, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            text-align: left;
+            line-height: 1.8;
+            color: #5a4a6a;
+            font-size: 0.95rem;
+        }
+
+        .message.show {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .message h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #5a4a6a;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .message p {
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .message .greeting {
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtext {
+                font-size: 0.9rem;
+            }
+
+            input[type="text"],
+            button {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div id="initialScreen">
+                <h1>Welcome</h1>
+                <p class="subtext">Please enter your name</p>
+                <div class="input-group">
+                    <input type="text" id="nameInput" placeholder="Enter your name" autocomplete="off">
+                </div>
+                <button id="continueBtn">Continue</button>
+            </div>
+
+            <div id="messageScreen" class="hidden">
+                <div id="personalizedMessage" class="message">
+                    <h2>Dear Zainab,</h2>
+                    <p class="greeting">I believe that God connects people who share similar thoughts and values.</p>
+                    <p>Some connections feel calm, natural, and meaningful without being forced.</p>
+                    <p>I truly appreciate kindness, understanding, and positivity — qualities that quietly stand out.</p>
+                    <p>This small space was created with care and creativity.</p>
+                    <p style="text-align: center; margin-top: 20px; font-weight: 400;">Stay blessed 🌿</p>
+                </div>
+
+                <div id="defaultMessage" class="message">
+                    <p style="text-align: center; font-weight: 400;">This space is made for someone special 🌿</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Valid name variations
+        const validNames = [
+            'shaik zainab',
+            'zainab',
+            'zainab shaik',
+            'zainabbintmehid',
+            'madam ji',
+            'madamji'
+        ];
+
+        // Get DOM elements
+        const nameInput = document.getElementById('nameInput');
+        const continueBtn = document.getElementById('continueBtn');
+        const initialScreen = document.getElementById('initialScreen');
+        const messageScreen = document.getElementById('messageScreen');
+        const personalizedMessage = document.getElementById('personalizedMessage');
+        const defaultMessage = document.getElementById('defaultMessage');
+
+        // Function to normalize name
+        function normalizeName(name) {
+            return name.toLowerCase().trim();
+        }
+
+        // Function to check if name is valid
+        function isValidName(name) {
+            const normalized = normalizeName(name);
+            return validNames.includes(normalized);
+        }
+
+        // Handle button click
+        continueBtn.addEventListener('click', function() {
+            const enteredName = nameInput.value;
+            
+            if (enteredName.trim() === '') {
+                return; // Don't proceed if input is empty
+            }
+
+            // Hide initial screen
+            initialScreen.classList.add('hidden');
+            messageScreen.classList.remove('hidden');
+
+            // Check if name matches
+            if (isValidName(enteredName)) {
+                personalizedMessage.style.display = 'block';
+                defaultMessage.style.display = 'none';
+                personalizedMessage.classList.add('show');
+            } else {
+                personalizedMessage.style.display = 'none';
+                defaultMessage.style.display = 'block';
+                defaultMessage.classList.add('show');
+            }
+        });
+
+        // Allow Enter key to submit
+        nameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                continueBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
