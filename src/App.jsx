@@ -218,7 +218,7 @@ function App() {
                 <div className="message default-message">
                   <div className="welcome-message">
                     <p className="welcome-text">
-                      Thanks for checking "<span className="entered-name">{name}</span>" it only for my special one.... Hope you have a great day 🖤
+                      Thanks for checking "<span className="entered-name">{name}</span>" it only for my special one not build for you .... Hope you have a great day! ✨
                     </p>
                   </div>
                 </div>
