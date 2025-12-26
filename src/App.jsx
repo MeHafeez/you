@@ -3,9 +3,10 @@ import './App.css';
 
 // Valid name variations (all lowercase for comparison)
 const validNames = [
-  'shaik zainab',
+  'syed zainab mehdi',
+  'syed zainab',
   'zainab',
-  'zainab shaik',
+  'zainab syed',
   'zainabbintmehid',
   'madam ji',
   'madamji'
